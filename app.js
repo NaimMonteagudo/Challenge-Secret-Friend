@@ -1,4 +1,5 @@
-const isAlpha = (str) => /^[a-zA-Z]+$/.test(str);  
+const validName = (str) => /^[a-zA-Z\s]+$/.test(str);
+   
 let friendsList = [];
 let showingFriends = document.getElementById('friendsList');
 let secretFriend = document.getElementById('result');
@@ -10,7 +11,7 @@ function addFriend(){
     let isItOnTheList = (element) => element.toLowerCase() === copyFriend; 
     
     if(friendsList.some(isItOnTheList)) alert("Your friend is already on the list");
-    else if(isAlpha(friendName)){
+    else if(validName(friendName) && friendName!=' '){
         friendsList.push(friendName);
         showFriend();
     }else alert("Type a valid name...");
