@@ -29,11 +29,14 @@ function updateFriendList(){
 }
 
 function drawFriend(){
-    let randomPos = parseInt(Math.random()*friendsList.length);
-    let li2 = document.createElement("li2");
-    li2.textContent = `The secret friend is ${friendsList[randomPos]}`;
-    secretFriend.appendChild(li2);
-    restartGame();
+    if(friendsList.length == 0) alert("Friends list is empty...");
+    else{    
+        let randomPos = Math.floor((Math.random()*friendsList.length));
+        let li2 = document.createElement("li2");
+        li2.textContent = `The secret friend is ${friendsList[randomPos]}`;
+        secretFriend.appendChild(li2);
+        restartGame();
+    }
     return;
 }
 
