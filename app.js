@@ -1,43 +1,39 @@
+const isAlpha = (str) => /^[a-zA-Z]+$/.test(str);  
 let friendsList = [];
+let showingFriends = document.getElementById('friendsList');
+let secretFriend = document.getElementById('result');
 
 function addFriend(){
+    secretFriend.innerHTML = "";
     let friendName = document.getElementById('friend').value;
     let copyFriend = friendName.toLowerCase();
-    let isItOnTheList = (element) => element.toLowerCase() === copyFriend;
-
-    if(friendsList.some(isItOnTheList)) alert("Your friend is already on the list");
-    else if(friendName != ''){
-        friendsList.push(friendName);
-        updateFriendList();
-        showFriend();
-    }
-    return;
-}
-
-function updateFriendList(){
+    let isItOnTheList = (element) => element.toLowerCase() === copyFriend; 
     
+    if(friendsList.some(isItOnTheList)) alert("Your friend is already on the list");
+    else if(isAlpha(friendName)){
+        friendsList.push(friendName);
+        showFriend();
+    }else alert("Type a valid name...");
+    return;
 }
 
 function showFriend(){
-    let showing = document.getElementById('friendsList');
     let li = document.createElement("li");
     li.textContent = friendsList[friendsList.length-1];
-    showing.appendChild(li);
+    showingFriends.appendChild(li);
     return;
 }
-
-
-addFriend();
-
 
 function drawFriend(){
-
-    showResults();
+    let randomPos = parseInt(Math.random()*friendsList.length);
+    let li2 = document.createElement("li2");
+    li2.textContent = `The secret friend is ${friendsList[randomPos]}`;
+    secretFriend.appendChild(li2);
+    restartGame();
     return;
 }
 
-
-
-
-
-
+function restartGame(){
+    friendsList = [];
+    showingFriends.innerHTML = "";
+}
