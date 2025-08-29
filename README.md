@@ -2,5 +2,6 @@
 
 - This is Alura's first challenge: Creating a simple game and practicing programming logic.
 <p align="center">
-<img width="600" height="400" alt="image" src="https://github.com/user-attachments/assets/d287afee-0077-4c3f-a70d-bf098b42de6a"/>
+  <img width="1193" height="856" alt="image" src="https://github.com/user-attachments/assets/1a94cd29-0a12-482d-9539-9721f731665f" />
+
 </p>
